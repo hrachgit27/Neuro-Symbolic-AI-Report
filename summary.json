@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-03-11T21:23:19.172212",
+  "model": "llama3:latest",
+  "dataset": "tasksource/proofwriter",
+  "assumption": "OWA (open world)",
+  "split": "test",
+  "n_per_depth": 10,
+  "n_total": 50,
+  "llm_only": {
+    "correct": 27,
+    "accuracy_pct": 54.0
+  },
+  "neuro_symbolic": {
+    "correct": 48,
+    "accuracy_pct": 96.0
+  },
+  "delta_ns_vs_llm": 42.0,
+  "by_config": {
+    "depth-0": {
+      "total": 10,
+      "llm_correct": 6,
+      "ns_correct": 10,
+      "llm_accuracy": 60.0,
+      "ns_accuracy": 100.0,
+      "delta": 40.0
+    },
+    "depth-1": {
+      "total": 10,
+      "llm_correct": 5,
+      "ns_correct": 9,
+      "llm_accuracy": 50.0,
+      "ns_accuracy": 90.0,
+      "delta": 40.0
+    },
+    "depth-2": {
+      "total": 10,
+      "llm_correct": 4,
+      "ns_correct": 9,
+      "llm_accuracy": 40.0,
+      "ns_accuracy": 90.0,
+      "delta": 50.0
+    },
+    "depth-3": {
+      "total": 10,
+      "llm_correct": 9,
+      "ns_correct": 10,
+      "llm_accuracy": 90.0,
+      "ns_accuracy": 100.0,
+      "delta": 10.0
+    },
+    "depth-4": {
+      "total": 0,
+      "llm_correct": 0,
+      "ns_correct": 0,
+      "llm_accuracy": 0,
+      "ns_accuracy": 0,
+      "delta": 0
+    },
+    "depth-5": {
+      "total": 10,
+      "llm_correct": 3,
+      "ns_correct": 10,
+      "llm_accuracy": 30.0,
+      "ns_accuracy": 100.0,
+      "delta": 70.0
+    }
+  },
+  "by_qdep": {
+    "0": {
+      "total": 23,
+      "llm_correct": 17,
+      "ns_correct": 23,
+      "llm_accuracy": 73.9,
+      "ns_accuracy": 100.0,
+      "delta": 26.1
+    },
+    "1": {
+      "total": 14,
+      "llm_correct": 4,
+      "ns_correct": 12,
+      "llm_accuracy": 28.6,
+      "ns_accuracy": 85.7,
+      "delta": 57.1
+    },
+    "2": {
+      "total": 7,
+      "llm_correct": 4,
+      "ns_correct": 7,
+      "llm_accuracy": 57.1,
+      "ns_accuracy": 100.0,
+      "delta": 42.9
+    },
+    "3": {
+      "total": 4,
+      "llm_correct": 2,
+      "ns_correct": 4,
+      "llm_accuracy": 50.0,
+      "ns_accuracy": 100.0,
+      "delta": 50.0
+    },
+    "4": {
+      "total": 2,
+      "llm_correct": 0,
+      "ns_correct": 2,
+      "llm_accuracy": 0.0,
+      "ns_accuracy": 100.0,
+      "delta": 100.0
+    }
+  },
+  "logical_consistency": {
+    "llm_only": {
+      "total_pairs": 6,
+      "consistent_pairs": 5,
+      "contradictions": 1,
+      "consistency_pct": 83.3,
+      "contradiction_examples": [
+        {
+          "theory_id": "AttNoneg-OWA-D3",
+          "q1": "Erin is blue.",
+          "v1": "true",
+          "q2": "Erin is not blue.",
+          "v2": "true"
+        }
+      ]
+    },
+    "neuro_symbolic": {
+      "total_pairs": 6,
+      "consistent_pairs": 6,
+      "contradictions": 0,
+      "consistency_pct": 100.0,
+      "contradiction_examples": []
+    }
+  },
+  "reasoning_errors": {
+    "parser_missed_rule": 0,
+    "max_steps_reached": 0,
+    "wrong_verdict": 0,
+    "unknown_when_answerable": 0,
+    "llm_misdirection": 2
+  }
+}

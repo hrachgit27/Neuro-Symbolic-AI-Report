@@ -1,0 +1,3696 @@
+[
+  {
+    "id": "RelNeg-OWA-D0-4449",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 3,
+    "nrule": 8,
+    "theory": "The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue. If the bear is nice then the bear chases the bald eagle. If someone eats the bald eagle then they are rough. If someone is cold and they chase the bear then the bear is rough. If someone eats the bear and they need the bear then the bear does not eat the bald eagle. If the dog is cold and the dog is nice then the dog eats the bald eagle. If someone needs the bear then they eat the bald eagle.",
+    "question": "The dog needs the bear.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 6.04,
+      "raw_response": "True\n\nThe dog needs the bear is explicitly stated in the theory: \"The dog needs the bear.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone is rough then they chase the bald eagle",
+        "If someone needs the bear then they are not blue",
+        "If the bear is nice then the bear chases the bald eagle",
+        "If someone eats the bald eagle then they are rough",
+        "If someone is cold and they chase the bear then the bear is rough",
+        "If someone eats the bear and they need the bear then the bear does not eat the bald eagle",
+        "If the dog is cold and the dog is nice then the dog eats the bald eagle",
+        "If someone needs the bear then they eat the bald eagle"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D0-4449",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 3,
+    "nrule": 8,
+    "theory": "The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue. If the bear is nice then the bear chases the bald eagle. If someone eats the bald eagle then they are rough. If someone is cold and they chase the bear then the bear is rough. If someone eats the bear and they need the bear then the bear does not eat the bald eagle. If the dog is cold and the dog is nice then the dog eats the bald eagle. If someone needs the bear then they eat the bald eagle.",
+    "question": "The bear needs the bald eagle.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": false,
+      "time_s": 2.7,
+      "raw_response": "Unknown\n\nThe theory does not provide any information that directly states whether the bear needs the bald eagle or not."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone is rough then they chase the bald eagle",
+        "If someone needs the bear then they are not blue",
+        "If the bear is nice then the bear chases the bald eagle",
+        "If someone eats the bald eagle then they are rough",
+        "If someone is cold and they chase the bear then the bear is rough",
+        "If someone eats the bear and they need the bear then the bear does not eat the bald eagle",
+        "If the dog is cold and the dog is nice then the dog eats the bald eagle",
+        "If someone needs the bear then they eat the bald eagle"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D0-4449",
+    "config": "depth-0",
+    "qdep": 2,
+    "nfact": 3,
+    "nrule": 8,
+    "theory": "The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue. If the bear is nice then the bear chases the bald eagle. If someone eats the bald eagle then they are rough. If someone is cold and they chase the bear then the bear is rough. If someone eats the bear and they need the bear then the bear does not eat the bald eagle. If the dog is cold and the dog is nice then the dog eats the bald eagle. If someone needs the bear then they eat the bald eagle.",
+    "question": "The bear is not rough.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 3.02,
+      "raw_response": "True\n\nThe bear is not rough because the theory states that if someone is rough then they chase the bald eagle, and there is no statement that suggests the bear chases the bald eagle."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 2.29,
+      "llm_calls": 1,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone needs the bear then they are not blue",
+          "derived": "NOT(the dog is blue)",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.29
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone needs the bear then they eat the bald eagle",
+          "derived": "the dog eat the bald eagle",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If someone eats the bald eagle then they are rough",
+          "derived": "the dog is rough",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If someone is rough then they chase the bald eagle",
+          "derived": "the dog chase the bald eagle",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "NOT(the dog is blue)",
+        "the dog chase the bald eagle",
+        "the dog eat the bald eagle",
+        "the dog is rough",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone is rough then they chase the bald eagle",
+        "If someone needs the bear then they are not blue",
+        "If the bear is nice then the bear chases the bald eagle",
+        "If someone eats the bald eagle then they are rough",
+        "If someone is cold and they chase the bear then the bear is rough",
+        "If someone eats the bear and they need the bear then the bear does not eat the bald eagle",
+        "If the dog is cold and the dog is nice then the dog eats the bald eagle",
+        "If someone needs the bear then they eat the bald eagle"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D0-4449",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 3,
+    "nrule": 8,
+    "theory": "The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue. If the bear is nice then the bear chases the bald eagle. If someone eats the bald eagle then they are rough. If someone is cold and they chase the bear then the bear is rough. If someone eats the bear and they need the bear then the bear does not eat the bald eagle. If the dog is cold and the dog is nice then the dog eats the bald eagle. If someone needs the bear then they eat the bald eagle.",
+    "question": "The bald eagle is cold.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": true,
+      "time_s": 3.03,
+      "raw_response": "Unknown\n\nThe reason is that the theory does not provide any information about the bald eagle's temperature or condition, so it is impossible to determine whether the bald eagle is cold or not based on the given information."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 2.29,
+      "llm_calls": 1,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone needs the bear then they are not blue",
+          "derived": "NOT(the dog is blue)",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.29
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone needs the bear then they eat the bald eagle",
+          "derived": "the dog eat the bald eagle",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If someone eats the bald eagle then they are rough",
+          "derived": "the dog is rough",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If someone is rough then they chase the bald eagle",
+          "derived": "the dog chase the bald eagle",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "NOT(the dog is blue)",
+        "the dog chase the bald eagle",
+        "the dog eat the bald eagle",
+        "the dog is rough",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bald eagle is rough)",
+        "NOT(the bear needs the bald eagle)",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone is rough then they chase the bald eagle",
+        "If someone needs the bear then they are not blue",
+        "If the bear is nice then the bear chases the bald eagle",
+        "If someone eats the bald eagle then they are rough",
+        "If someone is cold and they chase the bear then the bear is rough",
+        "If someone eats the bear and they need the bear then the bear does not eat the bald eagle",
+        "If the dog is cold and the dog is nice then the dog eats the bald eagle",
+        "If someone needs the bear then they eat the bald eagle"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D0-747",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 15,
+    "nrule": 8,
+    "theory": "Charlie is kind. Charlie is nice. Charlie is quiet. Charlie is red. Charlie is round. Charlie is smart. Gary is cold. Gary is nice. Gary is quiet. Harry is cold. Harry is nice. Harry is quiet. Harry is red. Harry is round. Harry is smart. If Harry is nice then Harry is cold. All smart, cold things are kind. If something is kind and round then it is red. If something is nice then it is smart. All round things are cold. Cold, red things are smart. If something is round and red then it is nice. If something is round then it is cold.",
+    "question": "Gary is quiet.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.61,
+      "raw_response": "True\n\nGary is quiet is stated as a fact in the theory, so it is true."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "initial_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "rules_parsed": [
+        "If Harry is nice then Harry is cold",
+        "All smart, cold things are kind",
+        "If something is kind and round then it is red",
+        "If something is nice then it is smart",
+        "All round things are cold",
+        "Cold, red things are smart",
+        "If something is round and red then it is nice",
+        "If something is round then it is cold"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D0-747",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 15,
+    "nrule": 8,
+    "theory": "Charlie is kind. Charlie is nice. Charlie is quiet. Charlie is red. Charlie is round. Charlie is smart. Gary is cold. Gary is nice. Gary is quiet. Harry is cold. Harry is nice. Harry is quiet. Harry is red. Harry is round. Harry is smart. If Harry is nice then Harry is cold. All smart, cold things are kind. If something is kind and round then it is red. If something is nice then it is smart. All round things are cold. Cold, red things are smart. If something is round and red then it is nice. If something is round then it is cold.",
+    "question": "Charlie is not quiet.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.63,
+      "raw_response": "False\n\nBecause the theory states that Charlie is quiet, and there is no information that contradicts this statement."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "initial_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "rules_parsed": [
+        "If Harry is nice then Harry is cold",
+        "All smart, cold things are kind",
+        "If something is kind and round then it is red",
+        "If something is nice then it is smart",
+        "All round things are cold",
+        "Cold, red things are smart",
+        "If something is round and red then it is nice",
+        "If something is round then it is cold"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D0-747",
+    "config": "depth-0",
+    "qdep": 1,
+    "nfact": 15,
+    "nrule": 8,
+    "theory": "Charlie is kind. Charlie is nice. Charlie is quiet. Charlie is red. Charlie is round. Charlie is smart. Gary is cold. Gary is nice. Gary is quiet. Harry is cold. Harry is nice. Harry is quiet. Harry is red. Harry is round. Harry is smart. If Harry is nice then Harry is cold. All smart, cold things are kind. If something is kind and round then it is red. If something is nice then it is smart. All round things are cold. Cold, red things are smart. If something is round and red then it is nice. If something is round then it is cold.",
+    "question": "Gary is not red.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.85,
+      "raw_response": "True\n\nGary is not red, and the theory states that Harry is red, but it does not mention Gary's color, so we can conclude that Gary is not red."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 9.18,
+      "llm_calls": 4,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "All smart, cold things are kind",
+          "derived": "harry is kind",
+          "llm_selected": 1,
+          "n_candidates": 4,
+          "llm_time_s": 2.32
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is nice then it is smart",
+          "derived": "gary is smart",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.28
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "All smart, cold things are kind",
+          "derived": "gary is kind",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.29
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it is cold",
+          "derived": "charlie is cold",
+          "llm_selected": 2,
+          "n_candidates": 2,
+          "llm_time_s": 2.29
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "charlie is cold",
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is kind",
+        "gary is nice",
+        "gary is quiet",
+        "gary is smart",
+        "harry is cold",
+        "harry is kind",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "initial_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "rules_parsed": [
+        "If Harry is nice then Harry is cold",
+        "All smart, cold things are kind",
+        "If something is kind and round then it is red",
+        "If something is nice then it is smart",
+        "All round things are cold",
+        "Cold, red things are smart",
+        "If something is round and red then it is nice",
+        "If something is round then it is cold"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D0-747",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 15,
+    "nrule": 8,
+    "theory": "Charlie is kind. Charlie is nice. Charlie is quiet. Charlie is red. Charlie is round. Charlie is smart. Gary is cold. Gary is nice. Gary is quiet. Harry is cold. Harry is nice. Harry is quiet. Harry is red. Harry is round. Harry is smart. If Harry is nice then Harry is cold. All smart, cold things are kind. If something is kind and round then it is red. If something is nice then it is smart. All round things are cold. Cold, red things are smart. If something is round and red then it is nice. If something is round then it is cold.",
+    "question": "Gary is round.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 3.14,
+      "raw_response": "False\n\nBecause the theory states \"All round things are cold\", and since Gary is round, it must be cold, but the theory also states \"Gary is nice\", which contradicts the statement \"If Harry is nice then Harry is cold\"."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 4.61,
+      "llm_calls": 2,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it is cold",
+          "derived": "charlie is cold",
+          "llm_selected": 4,
+          "n_candidates": 4,
+          "llm_time_s": 2.31
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "All smart, cold things are kind",
+          "derived": "harry is kind",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.3
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something is nice then it is smart",
+          "derived": "gary is smart",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "All smart, cold things are kind",
+          "derived": "gary is kind",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "charlie is cold",
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is kind",
+        "gary is nice",
+        "gary is quiet",
+        "gary is smart",
+        "harry is cold",
+        "harry is kind",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "initial_facts": [
+        "charlie is kind",
+        "charlie is nice",
+        "charlie is quiet",
+        "charlie is red",
+        "charlie is round",
+        "charlie is smart",
+        "gary is cold",
+        "gary is nice",
+        "gary is quiet",
+        "harry is cold",
+        "harry is nice",
+        "harry is quiet",
+        "harry is red",
+        "harry is round",
+        "harry is smart"
+      ],
+      "rules_parsed": [
+        "If Harry is nice then Harry is cold",
+        "All smart, cold things are kind",
+        "If something is kind and round then it is red",
+        "If something is nice then it is smart",
+        "All round things are cold",
+        "Cold, red things are smart",
+        "If something is round and red then it is nice",
+        "If something is round then it is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D0-2148",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 1,
+    "nrule": 6,
+    "theory": "The bear is cold. If the bear is young and the bear is blue then the bear is kind. If someone is kind then they are cold. All blue, young people are cold. All cold people are blue. Young people are green. Green people are young.",
+    "question": "The bear is cold.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.69,
+      "raw_response": "True\n\nThe bear is cold because the theory states \"The bear is cold\" directly, without any conditional statements or contradictions."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "the bear is cold"
+      ],
+      "initial_facts": [
+        "the bear is cold"
+      ],
+      "rules_parsed": [
+        "If the bear is young and the bear is blue then the bear is kind",
+        "If someone is kind then they are cold",
+        "All blue, young people are cold",
+        "All cold people are blue"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D0-2148",
+    "config": "depth-0",
+    "qdep": 0,
+    "nfact": 1,
+    "nrule": 6,
+    "theory": "The bear is cold. If the bear is young and the bear is blue then the bear is kind. If someone is kind then they are cold. All blue, young people are cold. All cold people are blue. Young people are green. Green people are young.",
+    "question": "The bear is not cold.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.6,
+      "raw_response": "False\n\nThe bear is cold according to the theory, which states \"The bear is cold.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear is cold"
+      ],
+      "initial_facts": [
+        "the bear is cold"
+      ],
+      "rules_parsed": [
+        "If the bear is young and the bear is blue then the bear is kind",
+        "If someone is kind then they are cold",
+        "All blue, young people are cold",
+        "All cold people are blue"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The cow needs the bear.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.64,
+      "raw_response": "True\n\nThe cow needs the bear is stated as a fact in the theory: \"The cow needs the bear.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The cow does not need the bear.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.81,
+      "raw_response": "False\n\nThe cow needs the bear (given in the theory), so the statement \"The cow does not need the bear\" is logically inconsistent with the theory."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 1,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The cow likes the squirrel.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": false,
+      "time_s": 2.68,
+      "raw_response": "Unknown\n\nThe answer is unknown because there is no direct or indirect evidence in the theory that suggests the cow likes the squirrel."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": false,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 1,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The cow does not like the squirrel.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.93,
+      "raw_response": "False\n\nThe cow likes the bear, and the cow is round, so according to the theory, the cow likes the squirrel. This contradicts the statement that the cow does not like the squirrel."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 1,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The bear does not like the squirrel.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 3.23,
+      "raw_response": "False\n\nThe bear likes the dog, and if the bear is round and the bear likes the squirrel, then the squirrel needs the bear. This implies that the bear has a positive relationship with the squirrel, which contradicts the statement that the bear does not like the squirrel."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 1,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The dog likes the squirrel.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": true,
+      "time_s": 3.01,
+      "raw_response": "Unknown\n\nThe answer is unknown because there is no direct or indirect evidence in the theory that suggests the dog's preference for the squirrel. The theory only mentions the dog's needs and observations, but not its preferences."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The bear does not need the cow.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 2.93,
+      "raw_response": "False\n\nThe bear does not need the cow is contradicted by the statement \"The cow needs the bear\", which implies that the bear's needs are somehow connected to the cow's needs."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D1-390",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 3,
+    "theory": "The bear likes the dog. The cow is round. The cow likes the bear. The cow needs the bear. The dog needs the squirrel. The dog sees the cow. The squirrel needs the dog. If someone is round then they like the squirrel. If the bear is round and the bear likes the squirrel then the squirrel needs the bear. If the cow needs the dog then the cow is cold.",
+    "question": "The dog likes the bear.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": true,
+      "time_s": 2.82,
+      "raw_response": "Unknown\n\nThere is no information in the theory that suggests the dog's preference for the bear, so it cannot be determined whether the dog likes the bear or not."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If someone is round then they like the squirrel",
+          "derived": "the cow like the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow like the squirrel",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "initial_facts": [
+        "the bear likes the dog",
+        "the cow is round",
+        "the cow likes the bear",
+        "the cow needs the bear",
+        "the dog needs the squirrel",
+        "the dog sees the cow",
+        "the squirrel needs the dog"
+      ],
+      "rules_parsed": [
+        "If someone is round then they like the squirrel",
+        "If the bear is round and the bear likes the squirrel then the squirrel needs the bear",
+        "If the cow needs the dog then the cow is cold"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D1-2003",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 2,
+    "theory": "The bald eagle is blue. The bald eagle is green. The tiger does not chase the bald eagle. The tiger eats the bald eagle. The tiger is cold. The tiger is green. The tiger visits the bald eagle. If something visits the bald eagle then the bald eagle does not visit the tiger. If something is cold and green then it visits the tiger.",
+    "question": "The bald eagle is green.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 2.8,
+      "raw_response": "False\n\nThe theory states that the bald eagle is blue, not green, and there is no contradictory information that would suggest the bald eagle is actually green."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the tiger chases the bald eagle)",
+        "the bald eagle is blue",
+        "the bald eagle is green",
+        "the tiger eats the bald eagle",
+        "the tiger is cold",
+        "the tiger is green",
+        "the tiger visits the bald eagle"
+      ],
+      "initial_facts": [
+        "NOT(the tiger chases the bald eagle)",
+        "the bald eagle is blue",
+        "the bald eagle is green",
+        "the tiger eats the bald eagle",
+        "the tiger is cold",
+        "the tiger is green",
+        "the tiger visits the bald eagle"
+      ],
+      "rules_parsed": [
+        "If something visits the bald eagle then the bald eagle does not visit the tiger",
+        "If something is cold and green then it visits the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D1-2003",
+    "config": "depth-1",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 2,
+    "theory": "The bald eagle is blue. The bald eagle is green. The tiger does not chase the bald eagle. The tiger eats the bald eagle. The tiger is cold. The tiger is green. The tiger visits the bald eagle. If something visits the bald eagle then the bald eagle does not visit the tiger. If something is cold and green then it visits the tiger.",
+    "question": "The tiger does not eat the bald eagle.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 3.03,
+      "raw_response": "True\n\nThe tiger does not eat the bald eagle because the theory states \"The tiger does not chase the bald eagle\" and \"The tiger eats the bald eagle\" is a contradictory statement, so it must be False."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the tiger chases the bald eagle)",
+        "the bald eagle is blue",
+        "the bald eagle is green",
+        "the tiger eats the bald eagle",
+        "the tiger is cold",
+        "the tiger is green",
+        "the tiger visits the bald eagle"
+      ],
+      "initial_facts": [
+        "NOT(the tiger chases the bald eagle)",
+        "the bald eagle is blue",
+        "the bald eagle is green",
+        "the tiger eats the bald eagle",
+        "the tiger is cold",
+        "the tiger is green",
+        "the tiger visits the bald eagle"
+      ],
+      "rules_parsed": [
+        "If something visits the bald eagle then the bald eagle does not visit the tiger",
+        "If something is cold and green then it visits the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 0,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The bear sees the rabbit.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.66,
+      "raw_response": "True\n\nThe bear sees the rabbit is stated as a fact in the theory, so it is true."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 0,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The rabbit is not green.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.76,
+      "raw_response": "True\n\nThe rabbit is not green because the theory states that the rabbit is green, but this is a contradictory statement, so it must be false."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 1,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The rabbit eats the dog.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 2.56,
+      "raw_response": "False\n\nThe rabbit eats the bear, not the dog, according to the theory."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": false,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 1,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The dog is not blue.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.86,
+      "raw_response": "True\n\nThe dog is not blue because the theory states that if something visits the bear then it is blue, and the dog does not visit the bear according to the theory."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 2,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The dog visits the dog.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 2.59,
+      "raw_response": "False\n\nThe dog visits the bear, but there is no information that suggests the dog visits the dog."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 2,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The dog does not visit the dog.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 3.36,
+      "raw_response": "False\n\nThe reason is that the theory states that if something visits the bear, then it is blue, and if something is blue, then it visits the dog. Since the dog does not visit the dog, it must visit the bear, making it blue, which means it visits the dog, which is a contradiction."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 1,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The dog does not eat the dog.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.84,
+      "raw_response": "True\n\nThe dog does not eat the dog because the theory states that the bear eats the dog, and the dog does not have the ability to eat itself."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 1,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The squirrel sees the squirrel.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": true,
+      "time_s": 2.66,
+      "raw_response": "Unknown\n\nThe theory does not provide any information that would allow us to conclude whether the squirrel sees the squirrel or not."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 1,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The rabbit is not blue.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.98,
+      "raw_response": "True\n\nThe rabbit is not blue because the theory states that if the rabbit visits the bear, then the rabbit is blue, but there is no statement in the theory that says the rabbit visits the bear."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "RelNoneg-OWA-D2-1104",
+    "config": "depth-2",
+    "qdep": 0,
+    "nfact": 12,
+    "nrule": 6,
+    "theory": "The bear eats the dog. The bear eats the squirrel. The bear is green. The bear is red. The bear sees the rabbit. The bear visits the dog. The bear visits the squirrel. The dog sees the bear. The dog visits the bear. The rabbit eats the bear. The rabbit is green. The squirrel sees the rabbit. If something visits the bear then it is blue. If something is blue then it visits the dog. If the rabbit visits the bear then the rabbit is blue. If something eats the bear and the bear is red then it eats the dog. If something eats the bear and the bear eats the rabbit then it sees the squirrel. If something visits the bear then the bear sees the rabbit.",
+    "question": "The rabbit is young.",
+    "expected_answer": "unknown",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": true,
+      "time_s": 2.73,
+      "raw_response": "Unknown\n\nThe theory does not provide any information about the age of the rabbit, so it is unknown whether the rabbit is young or not."
+    },
+    "neuro_symbolic": {
+      "verdict": "unknown",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something visits the bear then it is blue",
+          "derived": "the dog is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is blue then it visits the dog",
+          "derived": "the dog visits the dog",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_EXHAUSTED",
+          "result": "No more rules applicable \u2014 declaring Unknown"
+        }
+      ],
+      "final_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog is blue",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the dog visits the dog",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "initial_facts": [
+        "the bear eats the dog",
+        "the bear eats the squirrel",
+        "the bear is green",
+        "the bear is red",
+        "the bear sees the rabbit",
+        "the bear visits the dog",
+        "the bear visits the squirrel",
+        "the dog sees the bear",
+        "the dog visits the bear",
+        "the rabbit eats the bear",
+        "the rabbit is green",
+        "the squirrel sees the rabbit"
+      ],
+      "rules_parsed": [
+        "If something visits the bear then it is blue",
+        "If something is blue then it visits the dog",
+        "If the rabbit visits the bear then the rabbit is blue",
+        "If something eats the bear and the bear is red then it eats the dog",
+        "If something eats the bear and the bear eats the rabbit then it sees the squirrel",
+        "If something visits the bear then the bear sees the rabbit"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 0,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is round.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.6,
+      "raw_response": "True\n\nErin is round is given as a fact in the theory, so it is true."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 0,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is not round.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.66,
+      "raw_response": "False\n\nErin is round is explicitly stated in the theory, so it cannot be true that Erin is not round."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 1,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is blue.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.72,
+      "raw_response": "True\n\nErin is round and cold, and according to the theory, round, cold people are blue, so Erin is blue."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 1,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is not blue.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.99,
+      "raw_response": "True\n\nErin is not blue because the theory states that \"Round, cold people are blue\", and Erin is round, but it is also given that Erin is not blue, so Erin must not be cold."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 2,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is furry.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.73,
+      "raw_response": "True\n\nErin is round and nice, and since round, cold people are blue, and blue people are furry, Erin is furry."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone is blue then they are furry",
+          "derived": "erin is furry",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is furry",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 2,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is not furry.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.76,
+      "raw_response": "False\n\nErin is round and nice, so according to the theory, Erin is furry. This contradicts the statement that Erin is not furry."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 3,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone is blue then they are furry",
+          "derived": "erin is furry",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is furry",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 3,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is nice.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 3.1,
+      "raw_response": "True\n\nErin is nice because the theory states \"Erin is nice\" and \"All furry people are nice\" and since Erin is round and nice, Erin is furry, and all furry people are nice, Erin must be nice."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 4,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone is blue then they are furry",
+          "derived": "erin is furry",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "All furry people are nice",
+          "derived": "erin is nice",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is furry",
+        "erin is nice",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "AttNoneg-OWA-D3-1633",
+    "config": "depth-3",
+    "qdep": 3,
+    "nfact": 3,
+    "nrule": 6,
+    "theory": "Erin is cold. Erin is round. Erin is smart. All kind people are cold. If someone is smart and nice then they are cold. Round, cold people are blue. If Erin is round and Erin is nice then Erin is furry. If someone is blue then they are furry. All furry people are nice.",
+    "question": "Erin is not nice.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.94,
+      "raw_response": "False\n\nErin is not nice, but the theory states that \"All furry people are nice\", which means that if Erin is furry, she must be nice, which contradicts the given statement."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 4,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "Round, cold people are blue",
+          "derived": "erin is blue",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If someone is blue then they are furry",
+          "derived": "erin is furry",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "All furry people are nice",
+          "derived": "erin is nice",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 3,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "erin is blue",
+        "erin is cold",
+        "erin is furry",
+        "erin is nice",
+        "erin is round",
+        "erin is smart"
+      ],
+      "initial_facts": [
+        "erin is cold",
+        "erin is round",
+        "erin is smart"
+      ],
+      "rules_parsed": [
+        "All kind people are cold",
+        "If someone is smart and nice then they are cold",
+        "Round, cold people are blue",
+        "If Erin is round and Erin is nice then Erin is furry",
+        "If someone is blue then they are furry",
+        "All furry people are nice"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D3-713",
+    "config": "depth-3",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 6,
+    "theory": "The bear chases the dog. The bear does not eat the dog. The bear does not need the dog. The dog is big. The dog is not blue. The dog is not nice. The dog needs the bear. If someone needs the bear then they chase the bear. If someone is big then they chase the bear. If someone is kind and they do not need the bear then they chase the bear. If someone eats the dog then they need the dog. If someone is red then they need the dog. If someone chases the bear then they are red.",
+    "question": "The bear does not need the dog.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.77,
+      "raw_response": "True\n\nThe bear does not need the dog is explicitly stated in the theory as the third sentence: \"The bear does not need the dog.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bear eats the dog)",
+        "NOT(the bear needs the dog)",
+        "NOT(the dog is blue)",
+        "NOT(the dog is nice)",
+        "the bear chases the dog",
+        "the dog is big",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bear eats the dog)",
+        "NOT(the bear needs the dog)",
+        "NOT(the dog is blue)",
+        "NOT(the dog is nice)",
+        "the bear chases the dog",
+        "the dog is big",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone needs the bear then they chase the bear",
+        "If someone is big then they chase the bear",
+        "If someone is kind and they do not need the bear then they chase the bear",
+        "If someone eats the dog then they need the dog",
+        "If someone is red then they need the dog",
+        "If someone chases the bear then they are red"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D3-713",
+    "config": "depth-3",
+    "qdep": 0,
+    "nfact": 7,
+    "nrule": 6,
+    "theory": "The bear chases the dog. The bear does not eat the dog. The bear does not need the dog. The dog is big. The dog is not blue. The dog is not nice. The dog needs the bear. If someone needs the bear then they chase the bear. If someone is big then they chase the bear. If someone is kind and they do not need the bear then they chase the bear. If someone eats the dog then they need the dog. If someone is red then they need the dog. If someone chases the bear then they are red.",
+    "question": "The bear does not chase the dog.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.67,
+      "raw_response": "False\n\nThe bear chases the dog according to the first statement in the theory, which contradicts the given question."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the bear eats the dog)",
+        "NOT(the bear needs the dog)",
+        "NOT(the dog is blue)",
+        "NOT(the dog is nice)",
+        "the bear chases the dog",
+        "the dog is big",
+        "the dog needs the bear"
+      ],
+      "initial_facts": [
+        "NOT(the bear eats the dog)",
+        "NOT(the bear needs the dog)",
+        "NOT(the dog is blue)",
+        "NOT(the dog is nice)",
+        "the bear chases the dog",
+        "the dog is big",
+        "the dog needs the bear"
+      ],
+      "rules_parsed": [
+        "If someone needs the bear then they chase the bear",
+        "If someone is big then they chase the bear",
+        "If someone is kind and they do not need the bear then they chase the bear",
+        "If someone eats the dog then they need the dog",
+        "If someone is red then they need the dog",
+        "If someone chases the bear then they are red"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 0,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The squirrel is big.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "true",
+      "correct": true,
+      "time_s": 2.54,
+      "raw_response": "True\n\nThe answer is True because the theory states \"The squirrel is big.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 0,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The tiger is green.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 2.48,
+      "raw_response": "False\n\nBecause the theory states \"The tiger is not green.\""
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 0.0,
+      "llm_calls": 0,
+      "steps": 1,
+      "loop_trace": [
+        {
+          "step": 0,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 1,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The squirrel visits the cow.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 3.33,
+      "raw_response": "False\n\nThe answer is false because the theory states that \"If the squirrel is round then the squirrel visits the cow\", but the theory also states that \"The squirrel is big\" and \"The squirrel is round\", which implies that the squirrel is not round, so it does not visit the cow."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 2.33,
+      "llm_calls": 1,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.33
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 1,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The squirrel does not visit the cow.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 3.36,
+      "raw_response": "True\n\nThe answer is True because the theory states that \"If the squirrel is round then the squirrel visits the cow\", but since the theory also states that \"The squirrel is round\", it implies that the squirrel visits the cow, which contradicts the statement \"The squirrel does not visit the cow\"."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 2.3,
+      "llm_calls": 1,
+      "steps": 2,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.3
+        },
+        {
+          "step": 1,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 2,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The squirrel sees the squirrel.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "unknown",
+      "correct": false,
+      "time_s": 2.77,
+      "raw_response": "Unknown\n\nThe theory does not provide any information about the squirrel seeing the squirrel, so it is unknown whether the statement is true or false."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 6.86,
+      "llm_calls": 3,
+      "steps": 4,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.31
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.28
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.27
+        },
+        {
+          "step": 3,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 2,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The squirrel does not see the squirrel.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "false",
+      "correct": true,
+      "time_s": 3.16,
+      "raw_response": "False\n\nThe theory states that the squirrel is round, and if something is round then it visits the cow. Since the squirrel does not see the squirrel, it does not follow that the squirrel visits the cow, which is a contradiction to the theory."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 6.85,
+      "llm_calls": 3,
+      "steps": 4,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.31
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.26
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.28
+        },
+        {
+          "step": 3,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 3,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The cow is round.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 3.07,
+      "raw_response": "False\n\nThe cow is not described as being round in the theory, and the only way to conclude that the cow is round is through the conditional statements, which do not provide any evidence for the cow being round."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 9.13,
+      "llm_calls": 4,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.33
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.25
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.28
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+          "derived": "the cow is round",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.27
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the cow is round",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 3,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The cow is not round.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 3.17,
+      "raw_response": "True\n\nThe cow is not round because the theory states that if something is round then it eats the cow, but the cow is not big, and there is no evidence that the cow eats the tiger, which would imply that the cow is round."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 9.13,
+      "llm_calls": 4,
+      "steps": 5,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.32
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.26
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.28
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+          "derived": "the cow is round",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.27
+        },
+        {
+          "step": 4,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the cow is round",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 4,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The cow eats the cow.",
+    "expected_answer": "true",
+    "llm_only": {
+      "verdict": "false",
+      "correct": false,
+      "time_s": 2.74,
+      "raw_response": "False\n\nThe cow eats the tiger according to the theory, but there is no logical conclusion that the cow eats the cow."
+    },
+    "neuro_symbolic": {
+      "verdict": "true",
+      "correct": true,
+      "total_time_s": 6.87,
+      "llm_calls": 3,
+      "steps": 7,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If something sees the cow then the cow eats the tiger",
+          "derived": "the cow eats the tiger",
+          "llm_selected": 3,
+          "n_candidates": 3,
+          "llm_time_s": 2.32
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 2,
+          "n_candidates": 2,
+          "llm_time_s": 2.29
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.26
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 5,
+          "action": "APPLY_RULE",
+          "rule": "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+          "derived": "the cow is round",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 6,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the cow eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 1,
+          "llm_time_s": 0.0
+        },
+        {
+          "step": 6,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: true"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the cow eats the cow",
+        "the cow eats the tiger",
+        "the cow is round",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  },
+  {
+    "id": "RelNeg-OWA-D5-332",
+    "config": "depth-5",
+    "qdep": 4,
+    "nfact": 11,
+    "nrule": 9,
+    "theory": "The cow is not big. The cow is not green. The lion eats the tiger. The lion sees the cow. The lion visits the cow. The lion does not visit the squirrel. The lion visits the tiger. The squirrel is big. The squirrel is round. The tiger is not green. The tiger does not see the cow. If something sees the squirrel and the squirrel eats the cow then the cow is round. If something is green then it eats the tiger. If the squirrel is round then the squirrel visits the cow. If something eats the cow then it sees the squirrel. If something sees the tiger and the tiger visits the squirrel then it is nice. If something is round then it eats the cow. If something is kind then it eats the cow. If the tiger visits the cow then the cow sees the squirrel. If something sees the cow then the cow eats the tiger.",
+    "question": "The cow does not eat the cow.",
+    "expected_answer": "false",
+    "llm_only": {
+      "verdict": "true",
+      "correct": false,
+      "time_s": 2.99,
+      "raw_response": "True\n\nThe cow does not eat the cow because the theory states that if something sees the cow, then the cow eats the tiger, but it does not state that the cow eats the cow."
+    },
+    "neuro_symbolic": {
+      "verdict": "false",
+      "correct": true,
+      "total_time_s": 11.45,
+      "llm_calls": 5,
+      "steps": 6,
+      "loop_trace": [
+        {
+          "step": 1,
+          "action": "APPLY_RULE",
+          "rule": "If the squirrel is round then the squirrel visits the cow",
+          "derived": "the squirrel visits the cow",
+          "llm_selected": 1,
+          "n_candidates": 3,
+          "llm_time_s": 2.32
+        },
+        {
+          "step": 2,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the squirrel eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.25
+        },
+        {
+          "step": 3,
+          "action": "APPLY_RULE",
+          "rule": "If something eats the cow then it sees the squirrel",
+          "derived": "the squirrel sees the squirrel",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.31
+        },
+        {
+          "step": 4,
+          "action": "APPLY_RULE",
+          "rule": "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+          "derived": "the cow is round",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.27
+        },
+        {
+          "step": 5,
+          "action": "APPLY_RULE",
+          "rule": "If something is round then it eats the cow",
+          "derived": "the cow eats the cow",
+          "llm_selected": 1,
+          "n_candidates": 2,
+          "llm_time_s": 2.3
+        },
+        {
+          "step": 5,
+          "action": "SYMBOLIC_CHECK",
+          "result": "Question answered: false"
+        }
+      ],
+      "final_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the cow eats the cow",
+        "the cow is round",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel eats the cow",
+        "the squirrel is big",
+        "the squirrel is round",
+        "the squirrel sees the squirrel",
+        "the squirrel visits the cow"
+      ],
+      "initial_facts": [
+        "NOT(the cow is big)",
+        "NOT(the cow is green)",
+        "NOT(the lion visits the squirrel)",
+        "NOT(the tiger is green)",
+        "NOT(the tiger sees the cow)",
+        "the lion eats the tiger",
+        "the lion sees the cow",
+        "the lion visits the cow",
+        "the lion visits the tiger",
+        "the squirrel is big",
+        "the squirrel is round"
+      ],
+      "rules_parsed": [
+        "If something sees the squirrel and the squirrel eats the cow then the cow is round",
+        "If something is green then it eats the tiger",
+        "If the squirrel is round then the squirrel visits the cow",
+        "If something eats the cow then it sees the squirrel",
+        "If something sees the tiger and the tiger visits the squirrel then it is nice",
+        "If something is round then it eats the cow",
+        "If something is kind then it eats the cow",
+        "If the tiger visits the cow then the cow sees the squirrel",
+        "If something sees the cow then the cow eats the tiger"
+      ]
+    }
+  }
+]

@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-03-11T19:36:19.560328",
+  "model": "llama3:latest",
+  "dataset": "tasksource/proofwriter",
+  "assumption": "OWA (open world)",
+  "split": "test",
+  "n_per_depth": 10,
+  "n_total": 50,
+  "llm_only": {
+    "correct": 27,
+    "accuracy_pct": 54.0
+  },
+  "neuro_symbolic": {
+    "correct": 36,
+    "accuracy_pct": 72.0
+  },
+  "delta_ns_vs_llm": 18.0,
+  "by_config": {
+    "depth-0": {
+      "total": 10,
+      "llm_correct": 6,
+      "ns_correct": 10,
+      "llm_accuracy": 60.0,
+      "ns_accuracy": 100.0,
+      "delta": 40.0
+    },
+    "depth-1": {
+      "total": 10,
+      "llm_correct": 5,
+      "ns_correct": 8,
+      "llm_accuracy": 50.0,
+      "ns_accuracy": 80.0,
+      "delta": 30.0
+    },
+    "depth-2": {
+      "total": 10,
+      "llm_correct": 4,
+      "ns_correct": 6,
+      "llm_accuracy": 40.0,
+      "ns_accuracy": 60.0,
+      "delta": 20.0
+    },
+    "depth-3": {
+      "total": 10,
+      "llm_correct": 9,
+      "ns_correct": 10,
+      "llm_accuracy": 90.0,
+      "ns_accuracy": 100.0,
+      "delta": 10.0
+    },
+    "depth-4": {
+      "total": 0,
+      "llm_correct": 0,
+      "ns_correct": 0,
+      "llm_accuracy": 0,
+      "ns_accuracy": 0,
+      "delta": 0
+    },
+    "depth-5": {
+      "total": 10,
+      "llm_correct": 3,
+      "ns_correct": 2,
+      "llm_accuracy": 30.0,
+      "ns_accuracy": 20.0,
+      "delta": -10.0
+    }
+  },
+  "by_qdep": {
+    "0": {
+      "total": 23,
+      "llm_correct": 17,
+      "ns_correct": 23,
+      "llm_accuracy": 73.9,
+      "ns_accuracy": 100.0,
+      "delta": 26.1
+    },
+    "1": {
+      "total": 14,
+      "llm_correct": 4,
+      "ns_correct": 8,
+      "llm_accuracy": 28.6,
+      "ns_accuracy": 57.1,
+      "delta": 28.6
+    },
+    "2": {
+      "total": 7,
+      "llm_correct": 4,
+      "ns_correct": 3,
+      "llm_accuracy": 57.1,
+      "ns_accuracy": 42.9,
+      "delta": -14.3
+    },
+    "3": {
+      "total": 4,
+      "llm_correct": 2,
+      "ns_correct": 2,
+      "llm_accuracy": 50.0,
+      "ns_accuracy": 50.0,
+      "delta": 0.0
+    },
+    "4": {
+      "total": 2,
+      "llm_correct": 0,
+      "ns_correct": 0,
+      "llm_accuracy": 0.0,
+      "ns_accuracy": 0.0,
+      "delta": 0.0
+    }
+  }
+}
